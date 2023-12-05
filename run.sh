@@ -19,7 +19,7 @@ echo "#                              go                              #"
 echo "#==============================================================#"
 echo
 
-time ./go/build/async-bench
+time env GOMAXPROCS=4 ./go/build/async-bench
 
 echo
 echo "#==============================================================#"
@@ -27,7 +27,7 @@ echo "#                             tokio                            #"
 echo "#==============================================================#"
 echo
 
-time ./tokio/target/release/async-bench
+time env TOKIO_WORKER_THREADS=4 ./tokio/target/release/async-bench
 
 echo
 echo "#==============================================================#"
